@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link href="https://raw.githack.com/Achiever-12/value/main/Power.css"rel="stylesheet"/>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+         <style>
+             body {
+    background-color:#e44;
+    overflow:hidden ;
+    
+}
+
+.can{
+    width:80%;
+    height:380px;
+    background-color:white;
+    border-radius:7px;
+    position:relative ;
+    margin:auto;
+    top:120px;
+}
+
+#txt{
+    font-weight:bold;
+    position:relative ;
+    left:3px;
+    top:30px;
+    font-size:15px;
+}
+
+#input{
+    width:15%;
+    height:40px;
+    background-color:white;
+    position:relative ;
+    top:70px;
+    outline:none;
+    border:1px solid;
+    font-weight:bold;
+    text-align:center;
+    font-size:17px;
+    border-radius:5px;
+}
+
+#btn{
+    position:relative ;
+    top:100px;
+}
+
+#k{
+    position:relative ;
+    top:130px;
+}
+
+#moves{
+    font-weight:bold;
+    position:relative ;
+    left:3px;
+    top:130px;
+    font-size:15px;
+}
+#score{
+    font-weight:bold;
+    position:absolute ;
+    left:35vh;
+    top:335px;
+    font-size:15px;
+}
+
+#btn2{
+    position:relative ;
+    top:120px;
+    background-color:#e44;
+}
+
+#wi{
+    position:relative ;
+    top:-50px;
+    display:none;
+}
+
+#learn{
+    position:relative ;
+    background-color:#e14;
+    top:180px;
+    width:200px;
+    height:50px;
+    font-family:'Nunito', sans-serif;
+}
+         </style>
+    </head>
+    <body>
+        <div class="can">
+            <p id="txt">You Have To Guess Number Beetween 1-20</p>
+            <center><input type="number"id="input"></center>
+            <center><button class="op-button"id="btn"onclick="guess()">Guess</button></center>
+            <center><button class="op-button"id="btn2"onclick="rest()">Restart</button></center>
+           <center> <h2 id="k">LETS PLAY</h2></center>
+           <p id="moves">Moves Left:5</p>
+           <p id="score">Score:0</p>
+           <img src="https://img1.picmix.com/output/stamp/normal/7/4/3/4/534347_0e653.gif"id="wi">
+        </div>
+        <center><a href="https://youtu.be/--rmcH8qnVQ"><button class="op-button"id="learn"><div class="fa fa-youtube-play"id="y"></div> Learn IT</button></a></center>
+        <script>
+            
+            var random=Math.floor(Math.random()*20)
+           var move=5;
+           var scores=0;
+            function guess(){
+                
+                   var input=document.getElementById("input").value
+                    if(input == random){
+                        var k=document.getElementById("k").innerHTML="YOU WIN"
+                    wi.style.display="block" 
+                      setTimeout(function(){
+                          wi.style.display="none"
+                      },3000)
+     if(document.getElementById("k").innerHTML=="YOU WIN"){
+                            btn.onclick=function(){
+                                move+=0;
+                                scores+=0
+                            }
+                        }
+                        move+=5;
+                        var moves=document.getElementById("moves").innerHTML="MOVES LEFT:"+move
+                        
+                        scores+=1
+                       document.getElementById("score").innerHTML="Score:"+scores
+                    }
+                    else if(input<random){
+                        var input=document.getElementById("input").value
+                        var k=document.getElementById("k").innerHTML="TOO LESS TRY AGAIN"
+                        if(move<=0){
+                            alert("U Lose")
+                            scores=0
+                        }
+                        move-=1
+                        document.getElementById("moves").innerHTML="Moves Left:"+move
+                        if(move<=0){
+                            alert("U Lose")
+                            scores=0
+                            moves=5
+                            moves.innerHTML=move
+                            score.innerHTML =scores
+                        }
+                    }
+                    else if(input>random){
+                        var input=document.getElementById("input").value
+                        var k=document.getElementById("k").innerHTML="TOO HIGH TRY AGAIN"
+                        move-=1
+                        document.getElementById("moves").innerHTML="Moves Left:"+move
+                    }
+            }
+            function rest(){
+                var random=Math.floor(Math.random()*25)
+                btn.onclick=function(){
+                var input=document.getElementById("input").value
+                    if(input == random){
+                        var k=document.getElementById("k").innerHTML="YOU WIN"
+                        move+=5;
+                        scores+=1
+                        document.getElementById("score").innerHTML="Score"+scores
+                        if(document.getElementById("k").innerHTML=="YOU WIN"){
+                            btn.onclick=function(){
+                                move+=0;
+                                scores+=0;
+                            }
+                        }
+                        var moves=document.getElementById("moves").innerHTML="MOVES LEFT:"+move
+                    }
+                    else if(input<random){
+                        var input=document.getElementById("input").value
+                        var k=document.getElementById("k").innerHTML="TOO LESS TRY AGAIN"
+                        if(move<=0){
+                            alert("U Lose")
+                        }
+                        move-=1
+                        document.getElementById("moves").innerHTML="Moves Left:"+move
+                        if(move<=0){
+                            alert("U Lose")
+                            scores-=scores
+                            
+                            document.getElementById("moves").innerHTML="Moves Left:"+move
+                            score.innerHTML=scores
+                            alert("Game Over")
+                            setTimeout(function(){
+                                move=5
+                                document.getElementById("moves").innerHTML="Moves Left:"+move
+                            },1300)
+                        }
+                    }
+                    else if(input>random){
+                        var input=document.getElementById("input").value
+                        var k=document.getElementById("k").innerHTML="TOO HIGH TRY AGAIN"
+                        move-=1
+                        document.getElementById("moves").innerHTML="Moves Left:"+move
+                        
+                    }
+                    
+                    }
+                    alert("Now You Have To Guess Between 1-25 bruh")
+                    
+                    var k=document.getElementById("k").innerHTML="Restarted"
+                    var txt=document.getElementById("txt").innerHTML="You Have To Guess Number Beetwen 1-25"
+            }
+            
+            
+            
+        </script>
+    </body>
+</html>
